@@ -262,8 +262,8 @@ class Stockholm(object):
             r_params = {'q': yquery, 'format': 'json', 'env': 'http://datatables.org/alltables.env'}
             try:
                 r = requests.get(self.yql_url, params=r_params)
-                ## print(r.url)
-                ## print(r.text)
+                print(r.url)
+                print(r.text)
                 rjson = r.json()
                 quote_data = rjson['query']['results']['quote']
                 quote_data.reverse()
@@ -592,6 +592,7 @@ class Stockholm(object):
         all_quotes = self.load_all_quote_symbol()
         print("total " + str(len(all_quotes)) + " quotes are loaded..." + "\n")
         all_quotes = all_quotes
+        print(all_quotes)
         ## self.load_all_quote_info(all_quotes)
         self.load_all_quote_data(all_quotes, start_date, end_date)
         self.data_process(all_quotes)
